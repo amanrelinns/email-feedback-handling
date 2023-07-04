@@ -14,11 +14,10 @@ router.post('/', async (req, res) => {
         pass: account.pass
     }
   });
-  console.log(transporter);
 
   transporter.sendMail({
     from: account.user,
-    to: 'kumarsainideepak32@gmail.com',
+    to: 'aman@relinns.com',
     subject: 'Testing email',
     // text: 'This is only a test email',
     html: form3
@@ -36,9 +35,14 @@ router.post('/', async (req, res) => {
  })
 });
 
-router.post('/verify', (req, res) => {
-  console.log(req);
+router.post('/feedback', (req, res) => {
+  console.log('feedback received');
   console.log(req.body);
+  res.status(201).send('Gathered');
+})
+
+router.post('/rating', (req, res) => {
+  console.log('Rating: ', req.body);
   res.status(201).send('Gathered');
 })
 
